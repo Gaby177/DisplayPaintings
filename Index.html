@@ -1,0 +1,53 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Art Website</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Gochi+Hand&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pattaya&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <a  href="AboutMe.html" class="navbar-text">About Me</a>
+    <div class="profile-pic">
+      <img src="img/My Profile Pic.png" alt="Profile Picture">
+    </div>
+  </div>
+
+  <div class="palette" id="palette">
+    <!-- Buttons generated via JS -->
+  </div>
+
+  <div class="selection-bar">
+    <div class="selection-text">-- selecteaza un tablou -- </div>
+  </div>
+
+  <div class="canvas-container">
+    <img src="img/PLACEHOLDER.png" alt="Welcome" id="painting" class="painting hide">
+  </div>
+  
+  <!-- Modal pentru imagine (doar pe mobil) -->
+  <div id="image-modal" class="image-modal">
+    <img id="modal-img" src="" alt="Tablou mărit" />
+  </div>
+
+  <div class="text-area">
+    <h1 id="title" class="hide"><span>Hello</span>, I'm Rayman</h1>
+    <h3 id="subtitle" class="hide"> <b style="color:  #333;"> </b> </h3>
+    <p id="description" class="hide">Alege un tablou din galerie pentru a vedea mai multe din lucrarile mele</p>
+  </div>
+
+  <button class="order-button" >
+    <i class="fa-solid fa-paintbrush"></i>
+    <a href="Contact.html"> Comanda Tablou</a>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

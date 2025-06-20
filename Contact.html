@@ -1,0 +1,155 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Art Website</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Gochi+Hand&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pattaya&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="cont">
+
+  <div class="center-text">
+    <h1>Contacteaza-ma</h1>
+    <h4>Daca doresti un tablou personalizat, scrie-mi la:</h4>
+ </div>
+
+ <div class="social">
+  <div class="soc">
+    <i class="fa-brands fa-facebook" style="color: rgb(255, 255, 255);"></i>
+    <p>Gaby Osiceanu</p>
+  </div>
+  <div class="soc1">
+    <i class="fa-brands fa-square-instagram" style="color: rgb(255, 255, 255);"> </i>
+    <p>gaby.osiceanu10</p>
+  </div>
+  <div class="soc">
+    <i class="fa-solid fa-envelope" style="color: rgb(255, 255, 255);"> </i>
+    <p>gabyosiceanu@gmail.com</p>
+  </div>
+  <div class="soc1">
+    <i class="fa-brands fa-square-whatsapp" style="color: rgb(255, 255, 255);"> </i>
+    <a href="https://classroom.google.com/u/2/h?pli=1" target="_blank">0773 724 232</a>
+ </div>
+ </div>
+
+ <div class="center-text">
+  <h1>Recenzii</h1>
+  <h4>Ce parere au clientii?</h4>
+</div>
+<div class="review-content">
+
+  <div class="review-box">
+    <div class="profil">
+      <div class="user-img">
+        <img src="img/profile.jpg" alt="User Profile">
+      </div>
+      <div class="review">
+        <h2 class="name">Leana lu' Duman</h2>
+        <h3 class="name">Acum 3 luni</h3>
+      </div>
+      <i class="fa-brands fa-facebook"></i>
+    </div>
+    <p>Super Tare o sa mai comand</p>
+  </div>
+
+
+  <div class="review-box">
+    <div class="profil">
+      <div class="user-img">
+        <img src="img/profile.jpg" alt="User Profile">
+      </div>
+      <div class="review">
+        <h2 class="name">Leana lu' Duman</h2>
+        <h3 class="name">Acum 3 luni</h3>
+      </div>
+      <i class="fa-brands fa-facebook"></i>
+    </div>
+    <p>Super Tare o sa mai comand</p>
+  </div>
+
+  
+
+
+  <div class="review-box">
+    <div class="profil">
+      <div class="user-img">
+        <img src="img/profile.jpg" alt="User Profile">
+      </div>
+      <div class="review">
+        <h2 class="name">Leana lu' Duman</h2>
+        <h3 class="name">Acum 3 luni</h3>
+      </div>
+      <i class="fa-brands fa-facebook"></i>
+    </div>
+    <p>Super Tare o sa mai comandadfadakld afkdj fakdjfdlafj akld lkajfkdjlddfj adjlk</p>
+  </div>
+
+</div>
+
+<div class="center-text">
+  <h1>FAQ</h1>
+  <h4>Intrebari generale</h4>
+</div>
+
+<div class="faq-container">
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Cat dureaza livrarea?</h3>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Livrarea se face în termen de 2-3 zile lucrătoare în București și 3-5 zile lucrătoare în restul țării. Pentru comenzi speciale, vă rugăm să ne contactați pentru detalii.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Cum pot plati comanda?</h3>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Acceptăm plăți prin transfer bancar, card bancar și la livrare. Pentru comenzi online, plata se face în avans prin transfer bancar sau card.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Pot returna un tablou?</h3>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Da, aveți dreptul la retur în termen de 14 zile de la primirea comenzii. Tabloul trebuie să fie în aceeași stare în care a fost livrat, cu toate accesoriile și ambalajul original.</p>
+        </div>
+    </div>
+</div>
+
+<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#822fe0" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,101.3C480,117,600,171,720,186.7C840,203,960,181,1080,149.3C1200,117,1320,75,1380,53.3L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+
+<script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, make it active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
