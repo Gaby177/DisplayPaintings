@@ -899,7 +899,7 @@ a{
 
 @media screen and (max-width: 768px) {
   .center-text {
-    font-size: 22px;
+    font-size: 22px;  
     padding: 20px 5px 10px 5px;
     line-height: 1.2;
   }
