@@ -641,11 +641,6 @@ a{
 }
 
 
-
-
-
-
-
 .bgg{
   position: fixed;
   bottom: 0;
@@ -730,138 +725,135 @@ a{
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
   }
+   .navbar {
+    position: static;
+    order: 0;
+    flex-shrink: 0;
+    height: auto;
+    padding: 10px;
+  }
+   .navbar-text {
+     font-weight: 400;
+     font-style: normal;
+     font-size: 20px;
+   }
+   
+   .profile-pic {
+     width: 30px;
+     height: 30px;
+   }
   .palette {
-    background: transparent;
-    border: none;
-    filter: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    top: auto;
-    width: 100vw;
-    max-height: 100px;
-    border-radius: 0 0 20px 20px;
+    order: 4;
+    position: static;
+    flex-shrink: 0;
+    width: 100%;
+    max-height: 90px;
+    padding: 10px 0;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px 0 10px 0;
     overflow-x: auto;
     overflow-y: hidden;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 0;
     transform: none;
-    background-size: cover;
-    z-index: 3000;
-  }
-  .palette::-webkit-scrollbar {
-    display: none;
   }
   .color-button {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin: 0 8px;
     flex-shrink: 0;
   }
   .order-button {
-    position: absolute;
-    left: 50%;
-    bottom: 150px;
-    top: auto;
-    right: auto;
-    transform: translateX(-50%);
-    z-index: 3500;
-    padding: 10px 10px;
+    order: 3;
+    position: static;
+    transform: none;
+    align-self: center;
+    margin: 15px 0;
+    flex-shrink: 0;
+    padding: 10px 20px;
     font-size: 14px;
     border-radius: 18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    width: 160px;
+    width: 170px;
     text-align: center;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    top: auto;
   }
-
 
   .order-button:hover {
-    transform: translateX(-50%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
   }
-
-
-
 
   .order-button i {
     font-size: 40px;
     gap: 0;
     margin-left: -20px;
   }
-
-
   .text-area {
+    order: 1;
     position: static;
-    width: 100vw;
-    max-width: 100vw;
-    text-align: center;
-    padding: 50px 10px 8px 10px;
+    width: 100%;
+    padding: 15px 15px 5px 15px;
     margin: 0;
-    font-size: 1.1rem;
-    color: #333;
-    background: transparent;
-    right: unset;
-    top: unset;
     transform: none;
-    z-index: 900;
     box-sizing: border-box;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 1.1rem;
   }
+   #subtitle {
+     margin-top: -15px;
+     margin-bottom: 5px;
+   }
   #description {
     margin: 0;
   }
   .canvas-container {
-    width: 100vw;
-    height: 40vh;
-    min-height: 200px;
-    max-width: 100vw;
-    margin: 0;
-    padding: 0 0 0 0;
-    margin-top: 50px;
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     order: 2;
-    background: transparent;
-    gap: 20px;
+    flex-grow: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 10px;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0;
   }
   .painting {
     position: static;
-    width: 80vw;
-    max-width: 80vw;
+    max-width: 90%;
     max-height: 100%;
+    width: auto;
     height: auto;
-    border-width: 5px;
-    border-radius: 0.7rem;
-    left: unset;
-    bottom: unset;
-    margin: 0 auto;
-    display: block;
-    box-sizing: border-box;
-    transition: opacity 2s cubic-bezier(0.4,0,0.2,1), transform 2s cubic-bezier(0.4,0,0.2,1);
-    opacity: 1;
-    transform: none;
-    z-index: 100;
-    padding: 0;
-    background: none;
     object-fit: cover;
+    margin: 0;
+    transform: none;
+    border-width: 5px;
+    border-radius: 1rem;
+    transition: opacity 1s ease, transform 1s ease;
   }
   .painting.hide {
     opacity: 0;
-    transform: scale(0.98) translateY(10px);
-    transition: opacity 1.7s cubic-bezier(0.4,0,0.2,1), transform 1.7s cubic-bezier(0.4,0,0.2,1);
+    transform: scale(0.95);
   }
   .painting.show {
     opacity: 1;
-    transform: scale(1) translateY(0);
-    transition: opacity 2s cubic-bezier(0.4,0,0.2,1), transform 2s cubic-bezier(0.4,0,0.2,1);
+    transform: scale(1);
   }
   .selection-bar{
     display: none;
@@ -899,7 +891,7 @@ a{
 
 @media screen and (max-width: 768px) {
   .center-text {
-    font-size: 22px;  
+    font-size: 22px;
     padding: 20px 5px 10px 5px;
     line-height: 1.2;
   }
