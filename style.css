@@ -717,6 +717,13 @@ a{
  
 }
 
+
+.back-contact i{
+  padding: 10px;
+  font-size: 25px;
+
+}
+
 @media screen and (max-width: 768px) {
   body {
     background: aliceblue !important;
@@ -753,7 +760,7 @@ a{
     width: 100%;
     max-height: 90px;
     padding: 10px 0;
-    background: rgba(255,255,255,0.8);
+    background-image: url('img/dots.png');
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     flex-direction: row;
@@ -761,7 +768,7 @@ a{
     justify-content: flex-start;
     overflow-x: auto;
     overflow-y: hidden;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    box-shadow: none;
     border: none;
     border-radius: 0;
     transform: none;
@@ -813,6 +820,12 @@ a{
     text-align: center;
     font-size: 1.1rem;
   }
+
+
+   #title {
+     margin-top: -10px;
+   }
+
    #subtitle {
      margin-top: -15px;
      margin-bottom: 5px;
@@ -833,6 +846,7 @@ a{
     box-sizing: border-box;
     height: auto;
     margin: 0;
+  
   }
   .painting {
     position: static;
@@ -849,11 +863,22 @@ a{
   }
   .painting.hide {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(500px) !important;
   }
   .painting.show {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
+  }
+  #title,
+  #subtitle,
+  #description {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  #title.hide,
+  #subtitle.hide,
+  #description.hide {
+    opacity: 0;
+    transform: translateY(15px) !important;
   }
   .selection-bar{
     display: none;
