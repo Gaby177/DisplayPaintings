@@ -279,10 +279,10 @@ a{
 }
 
 .order-button:hover {
-  transform: none;
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: #333;
+  color: white;
 }
 
 .order-button:hover i {
@@ -292,10 +292,8 @@ a{
 }
 
 .order-button:active {
-  transform: none;
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text-color);
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .selection-bar {
@@ -763,7 +761,7 @@ a{
     left: 0;
     flex-shrink: 0;
     width: 100%;
-    max-height: 90px;
+    max-height: 75px;
     padding: 10px 0;
     background-image: url('img/dots.png');
     backdrop-filter: blur(5px);
