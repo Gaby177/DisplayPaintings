@@ -1,6 +1,6 @@
   :root {
     --text-color: #333;
-    font-family: 'Branding';
+    font-family: 'Branding', sans-serif;      
   }
 
   body {
@@ -55,6 +55,27 @@
     color: var(--text-color);
     margin-right: 10px;
     font-weight: bold;
+    transition: transform .5s;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .navbar-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--text-color);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+  }
+
+  .navbar-text:hover::after {
+    transform: scaleX(1);
   }
 
   .profile-pic {
@@ -62,7 +83,6 @@
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
-    border:3px solid var(--text-color);
   }
 
   .profile-pic img {
@@ -149,8 +169,6 @@
     justify-content: center;
     margin: 0 auto;
     transition: 1s ease;
-
-
   }
 
   .painting {
@@ -158,7 +176,7 @@
     position: absolute;
     left: 50%;
     bottom: 113px;
-    width: 600px;
+    width: 400px;
     height: auto;
     max-height: 450px;
     border: 7px solid var(--text-color);
@@ -226,6 +244,7 @@
     font-size: 16px;
     line-height: 1.5;
     margin-top: 20px;
+    font-weight: 0;
   }
 
   #description.hide {
@@ -383,7 +402,8 @@
   .soc p, .soc a,.soc1 p, .soc1 a{
     margin: 0;
     font-size: 35px;
-    font-family: 'Branding';
+    font-family: 'Branding', sans-serif;
+                                                
     font-weight: 700;
     align-content: center;
   }
@@ -496,7 +516,7 @@
 
   .review .name {
       margin: 0;
-      font-family: "Branding", sans-serif;
+      font-family: 'Branding', sans-serif;
       color: var(--text-color);
       line-height: 12px;
   }
@@ -513,7 +533,7 @@
   }
 
   .review-box p {
-      font-family: "Branding", sans-serif;
+      font-family: 'Branding', sans-serif;
       margin: 0;
       padding-left: 0;
       font-size: 16px;
@@ -580,8 +600,8 @@
 
   .faq-question h3 {
       margin: 0;
-      font-family: "branding";
-      color: #f0f8ff;
+      font-family: 'Branding', sans-serif;
+                                                
       font-size: 18px;
   }
 
@@ -647,12 +667,16 @@
     left: 0;
     width: 50vw;
     height: 100vh;
-    background-color: #7b3eff;
+    background-color: #6235c3;
     justify-content: flex-start;
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .bgg h1{
+   color: aliceblue;
   }
 
 
@@ -677,6 +701,7 @@
     font-weight: 400;
     padding: 150px;
     text-align: justify;
+    color: #6235c3;
   }
 
 
@@ -717,17 +742,36 @@
   
   }
 
+  .back-contact {
+    position:absolute;
+    top: 0;
+    left: 0;
+  }
 
   .back-contact i{
-    padding: 10px;
-    font-size: 25px;
-
+    padding: 20px;
+    font-size: 50px;
+    transition: .5s;
+    cursor: pointer;
   }
+
+  .back-contact i:hover{
+    transform: scale(1.05);
+  }
+
+
+
+
+
+
+
+
+
+
 
   @media screen and (max-width: 768px) {
     body {
-      background: aliceblue !important;
-      background-image: none !important;
+      background-image: url('img/BG_Mobile.png');
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -753,15 +797,14 @@
 
 /*edittt ---------------------------------------------------------------------*/
     .navbar-text::before {
-      content: 'Comanda Tablou • ';
+      content: 'Comanda Tablou  • ';
       cursor: pointer;
       transition: color 0.3s ease;
+      pointer-events: auto;
+      user-select: none;
     }
     
-    .navbar-text::before:hover {
-      color: #0056b3;
-    }
-    
+
     .profile-pic {
       width: 30px;
       height: 30px;
@@ -830,7 +873,7 @@
     }
 
     .order-button a{
-      font-family: 'Branding';
+      font-family: 'Branding', sans-serif;
       font-weight: 400;
     }
 
@@ -868,7 +911,7 @@
 
 
     #title {
-      margin-top: -10px;
+      margin-top: 10px;
     }
 
     #subtitle {
@@ -1056,4 +1099,68 @@
     .svg {
       display: none;
     }
+
+
+    .back-contact i{
+      font-size: 35px;
+      padding: 15px;
+    
+    }
+
+
+
+
+
+
+      /*------------------ MEDIA ABOUT ME ------------- */
+    .bgg{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 50vh;
+      background-color: #6235c3;
+      justify-content: flex-start;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .bgg h1{
+     color: aliceblue;
+    }
+  
+  
+    .bgg2{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100vw;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .bgg2 h1{
+      font-size: 15px;
+      padding: 120px 20px 0 20px;
+      margin: 0 auto;
+    }
+  
+  
+    .circle{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      width: 250px;
+    }
+
+    .bgg i{
+      font-size: 40px;
+    }
+
   }
