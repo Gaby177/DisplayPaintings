@@ -29,8 +29,9 @@
       width: 100vw;
       background:aliceblue;
       background-size: cover;
+      min-height: 100vh;
+      overflow: hidden;
   }
-
 
   body.about{
     background:aliceblue;
@@ -793,6 +794,7 @@
       font-weight: 600;
       font-style: normal;
       font-size: 20px;
+      text-decoration: none;
     }
 
 /*edittt ---------------------------------------------------------------------*/
@@ -935,12 +937,13 @@
       box-sizing: border-box;
       height: auto;
       margin: 0;
-    
+      max-height: calc(100vh - 110px); /* spațiu pentru navbar și paletă */
+      overflow: hidden;
     }
     .painting {
       position: static;
       max-width: 90%;
-      max-height: 100%;
+      max-height: 60vh;
       width: auto;
       height: auto;
       object-fit: cover;
@@ -953,6 +956,7 @@
       outline: none;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
+      display: block;
     }
     .painting.hide {
       opacity: 0;
@@ -1128,7 +1132,9 @@
     }
   
     .bgg h1{
+      margin-top: -20px;
      color: aliceblue;
+     font-size: 70px;
     }
   
   
@@ -1164,3 +1170,14 @@
     }
 
   }
+
+body.cont .circle {
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
