@@ -794,11 +794,11 @@ a{
 
   }
   .order-button {
-    order: 3;
-    position: static;
+    position: absolute;
+    top: 10px;
+    left: 15px;
     transform: none;
-    align-self: center;
-    margin: 15px 0;
+    margin: 0;
     flex-shrink: 0;
     padding: 10px 20px;
     font-size: 14px;
@@ -806,13 +806,11 @@ a{
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     width: 160px;
     text-align: center;
-    left: auto;
-    bottom: auto;
-    right: auto;
-    top: auto;
     outline: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    z-index: 1000;
+    height: 40px;
   }
 
   .order-button:hover {
@@ -835,7 +833,7 @@ a{
     margin-left: -30px;
   }
   .text-area {
-    order: 1;
+    order: 2;
     position: static;
     width: 100%;
     padding: 15px 15px 5px 15px;
@@ -860,7 +858,7 @@ a{
     margin: 0;
   }
   .canvas-container {
-    order: 2;
+    order: 3;
     flex-grow: 1;
     flex-shrink: 1;/* edit*/
     min-height: 0;
