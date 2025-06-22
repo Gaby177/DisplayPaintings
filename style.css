@@ -374,7 +374,7 @@
     gap: 10px;
     font-size: 50px;
     padding: 10px;
-    background: -webkit-linear-gradient(#2600ff, #ff00f7);
+    background: -webkit-linear-gradient(#2b0cdf, #e40bdd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: .5s;
@@ -456,6 +456,9 @@
     margin: 0 auto;
   }
 
+
+
+  
   .review-box {
       background: linear-gradient(48deg, rgba(0, 46, 199, 0.4) 0%, rgba(162, 0, 255, 0.4) 60%, rgba(255, 0, 247, 0.4) 100%);
       backdrop-filter: blur(10px);
@@ -576,7 +579,7 @@
       overflow: hidden;
       will-change: transform;
       background: #002ec7;
-      background: linear-gradient(48deg, rgba(0, 46, 199, .7) 0%, rgba(162, 0, 255, .7) 60%, rgba(255, 0, 247, .7) 100%);
+      background: linear-gradient(48deg, rgba(10, 55, 205, 0.7) 0%, rgba(142, 9, 218, 0.7) 60%, rgba(209, 9, 202, 0.7) 100%);
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 8px 17px 0 rgba(31, 38, 135, 0.4);
       
@@ -640,20 +643,7 @@
       transform: translateY(0);
   }
 
-  /* Media query for FAQ on mobile */
-  @media screen and (max-width: 768px) {
-      .faq-container {
-          padding: 15px;
-      }
 
-      .faq-question h3 {
-          font-size: 16px;
-      }
-
-      .faq-answer p {
-          font-size: 14px;
-      }
-  }
 
 
   .svg{
@@ -667,8 +657,7 @@
     left: 0;
     width: 50vw;
     height: 100vh;
-    background-color: #6235c3;
-    justify-content: flex-start;
+    background-image: -moz-linear-gradient(#3a21c7, #c615d6);
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -677,6 +666,7 @@
 
   .bgg h1{
    color: aliceblue;
+   font-size: 100px;
   }
 
 
@@ -696,12 +686,11 @@
 
   .bgg2 h1{
     margin-left: 90px;
-    line-height: 27px;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: 400;
     padding: 150px;
     text-align: justify;
-    color: #6235c3;
+    color: #5831ad;
   }
 
 
@@ -731,6 +720,7 @@
     border-radius: 50%;
     z-index: 99;
     overflow: hidden;
+    border: 15px solid aliceblue;
   }
 
 
@@ -764,9 +754,20 @@
 
 
 
+  /* Media query for FAQ on mobile */
+  @media screen and (max-width: 768px) {
+    .faq-container {
+        padding: 15px;
+    }
 
+    .faq-question h3 {
+        font-size: 16px;
+    }
 
-
+    .faq-answer p {
+        font-size: 14px;
+    }
+}
 
 
   @media screen and (max-width: 768px) {
@@ -790,6 +791,7 @@
       padding: 10px;
       outline: none;
       user-select: none;
+      text-decoration: none;
 
     }
     .navbar-text {
@@ -799,6 +801,7 @@
       outline: none;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
     }
 
 /*edittt ---------------------------------------------------------------------*/
@@ -809,6 +812,7 @@
       outline: none;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
     }
 
     .navbar-text::hover {
@@ -1127,6 +1131,13 @@
     }
 
 
+    .soc1:hover{
+      transform: none;
+      filter: none;
+    }
+  
+
+
 
       /*------------------ MEDIA ABOUT ME ------------- */
     .bgg{
@@ -1166,7 +1177,7 @@
   
     .bgg2 h1{
       font-size: 15px;
-      padding: 120px 20px 0 20px;
+      padding: 120px 50px 0 50px;
       margin: 0 auto;
     }
   
@@ -1182,6 +1193,8 @@
 
     .bgg i{
       font-size: 40px;
+      left: 20px;
+      top: 20px;
     }
 
   }
