@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const rect = navbarText.getBoundingClientRect();
             const textWidth = navbarText.offsetWidth;
             
-            if (clickX < textWidth * 0.55) {
+            if (clickX < textWidth * 0.45) {
                 e.preventDefault();
                 e.stopPropagation();
                 window.location.href = 'Contact.html';
