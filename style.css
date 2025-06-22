@@ -732,7 +732,7 @@ a{
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    height: 100vh;
+    min-height: 100vh; /*  height: 100vh;*/
     width: 100vw;
     /*overflow: hidden;*/
     overflow-y: auto;
@@ -862,6 +862,7 @@ a{
   .canvas-container {
     order: 2;
     flex-grow: 1;
+    flex-shrink: 1;/* edit*/
     min-height: 0;
     width: 100%;
     display: flex;
