@@ -746,9 +746,20 @@
       padding: 10px;
     }
     .navbar-text {
-      font-weight: 400;
+      font-weight: 600;
       font-style: normal;
       font-size: 20px;
+    }
+
+/*edittt ---------------------------------------------------------------------*/
+    .navbar-text::before {
+      content: 'Comanda Tablou • ';
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar-text::before:hover {
+      color: #0056b3;
     }
     
     .profile-pic {
@@ -794,6 +805,7 @@
 
     }
     .order-button {
+      display: none;
       position: absolute;
       top: 10px;
       left: 15px;
