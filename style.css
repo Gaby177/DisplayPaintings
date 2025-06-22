@@ -378,26 +378,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: .5s;
-
   }
 
-
-  /*  .SOC TEST
-  .soc-test{
-    display: inline-flex;
-    gap: 10px;
-    font-size: 50px;
-    padding: 10px;
-    color: aliceblue;
-    background: linear-gradient(48deg, rgba(0, 46, 199, 0.6) 0%, rgba(162, 0, 255, 0.6) 60%, rgba(255, 0, 247, 0.6) 100%);
-
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 1.5rem;
-    width: 500px;
-    text-align: center;
-    justify-content: center;
-  }
-  */
 
   .soc p, .soc a,.soc1 p, .soc1 a{
     margin: 0;
@@ -1052,6 +1034,14 @@
       width: 95vw;
       justify-content: center;
     }
+
+
+    .soc:hover, .soc1:hover{
+      transform: none;
+      filter: none;
+    }
+
+
     .soc p, .soc a, .soc1 p, .soc1 a {
       font-size: 20px;
       word-break: break-all;
