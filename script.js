@@ -223,4 +223,57 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         });
     }
+
+    // Mobile navbar active link highlight
+    function setActiveMobileNav() {
+        const path = window.location.pathname.toLowerCase();
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        if (path.includes('aboutme')) {
+            document.getElementById('nav-about')?.classList.add('active');
+        } else if (path.includes('contact')) {
+            document.getElementById('nav-contact')?.classList.add('active');
+        } else {
+            document.getElementById('nav-home')?.classList.add('active');
+        }
+    }
+    window.addEventListener('DOMContentLoaded', setActiveMobileNav);
+
+    // Mobile navbar hide/show on scroll
+    let lastScrollTop = 0;
+    const mobileNavbar = document.querySelector('.mobile-navbar');
+    const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (Math.abs(scrollTop - lastScrollTop) < scrollThreshold) return;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 60) {
+            // Scrolling down - hide navbar
+            mobileNavbar?.classList.add('navbar-hidden');
+        } else {
+            // Scrolling up - show navbar
+            mobileNavbar?.classList.remove('navbar-hidden');
+        }
+        
+        lastScrollTop = scrollTop;
+    }
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    function updateNavbar() {
+        handleScroll();
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
 });
