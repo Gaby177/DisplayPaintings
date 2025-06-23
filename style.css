@@ -1237,17 +1237,22 @@
       position: relative;
       min-width: 55px;
       min-height: 40px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .mobile-nav-link i {
       font-size: 22px;
       margin-bottom: 2px;
       transition: color 0.3s, transform 0.3s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .mobile-nav-link.active, .mobile-nav-link:active, .mobile-nav-link:focus {
    
       color: #3a21c7;
       transform: scale(1.08);
       height: 45px;
+      
     }
     .mobile-nav-link.active i, .mobile-nav-link:active i, .mobile-nav-link:focus i {
       color: #3a21c7;
@@ -1270,6 +1275,8 @@
       justify-content: center;
       background: white;
       transition: box-shadow 0.3s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .mobile-profile-pic img {
       width: 100%;
