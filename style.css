@@ -12,7 +12,7 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background: url('img/BG4.png') center center no-repeat;
+    background: url('img/BG4.jpg') center center no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -720,7 +720,7 @@
 
   @media screen and (max-width: 768px) {
     body {
-      background-image: url('img/BG_Mobile.png');
+      background-image: url('img/BG_Mobile.jpg');
       display: flex;
       flex-direction: column;
       align-items: stretch;
