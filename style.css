@@ -3,6 +3,9 @@
     font-family: 'Branding', sans-serif;      
   }
 
+
+  /*----------- Body ------------------*/
+
   body {
     margin: 0;
     padding: 0;
@@ -16,33 +19,36 @@
     justify-content: center;
     position: relative;
     flex-direction: column;
-
     /*cursor: url('img/brush.png'), auto;*/
   }
 
   /* Special class for contact page */
   body.cont {
-      overflow-y: auto;
-      height: auto;
-      min-height: 100vh;
-      background-attachment: fixed;
-      width: 100vw;
-      background:aliceblue;
-      background-size: cover;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    background-attachment: fixed;
+    width: 100vw;
+    background:aliceblue;
+    background-size: cover;
   }
-
 
   body.about{
     background:aliceblue;
   }
 
+
+    /*----------- INDEX PAGE ------------------*/
+
+     /*-----------  NAVBAR ------------------*/
+
   .mobile-navbar{
     display: none;
   }
 
-
   .navbar {
     position: absolute;
+    right: 30px;
     top: 0;
     width: 100%;
     height: 70px;
@@ -51,9 +57,12 @@
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
+    z-index: 999;
+    animation: slideInNAV 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .navbar-text {
+    margin-left: 20px;
     font-weight: 400;
     font-style: normal;
     font-size: 22px;
@@ -83,6 +92,10 @@
     transform: scaleX(1);
   }
 
+  .active {
+    color: #8400ff;
+  }
+
   .profile-pic {
     width: 40px;
     height: 40px;
@@ -95,6 +108,10 @@
     height: 100%;
     object-fit: cover;
   }
+
+
+
+   /*----------- PALETA ------------------*/
 
   .palette {
     background-image: url('img/dots.jpg');
@@ -116,6 +133,7 @@
     transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    animation: slideInPalette 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     
   }
@@ -165,6 +183,9 @@
     transform: scale(1.1);
   }
 
+
+   /*----------- CONTAINER CANVAS ------------------*/
+
   .canvas-container {
     position: relative;
     width: 800px;
@@ -175,6 +196,14 @@
     margin: 0 auto;
     transition: 1s ease;
   }
+
+  .canvas-container:active{
+    transform: scale(1.05) translateY(-5px) rotate(2deg);
+  }
+
+
+
+  /*----------- TABLOU ------------------*/
 
   .painting {
     z-index: 99;
@@ -192,11 +221,17 @@
     cursor: pointer;
   }
 
-  .canvas-container:active{
-    transform: scale(1.05) translateY(-5px) rotate(2deg);
+  .hide {
+    transform: translateX(300%) rotate(50deg) !important;
+  }
+
+  .show {
+    transform: translateX(-50%) rotate(0deg);
   }
 
 
+
+  /*----------- TEXTE TABLOU ------------------*/
 
   .text-area span{
     color: var(--text-color);
@@ -257,18 +292,14 @@
     transform: translateX(50px);
   }
 
-  .hide {
-    transform: translateX(300%) rotate(50deg) !important;
-  }
+ 
 
-  .show {
-    transform: translateX(-50%) rotate(0deg);
-  }
+    /*----------- CBUTON COMANDA TABLOU ------------------*/
 
   .order-button {
     position: fixed;
     bottom: 50px;
-    right: 50px;
+    right: 60px;
     padding: 10px 40px 10px 40px; 
     background: rgba(255, 255, 255, 0.9);
     border: 3px solid var(--text-color);
@@ -283,6 +314,7 @@
     display: flex;
     align-items: center;
     gap: 0px;
+    animation: slideInButton 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
   }
 
   a{
@@ -320,34 +352,11 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
 
-  .selection-bar {
-    position: absolute;
-    left: 190px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    z-index: 10;
-  }
+   
 
+   /*----------- PAGINA CONTACT ------------------*/
 
-  .selection-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-family: "Lilita One", sans-serif;
-    font-size: 16px;
-    color: #c5d2d7;
-    letter-spacing: 2px;
-    padding: 10px 0;
-    text-align: center;
-    margin-left: -10px;
-  }
-
-
-  /*------Contact Page--------------*/
-
+   /*----------- SOCIAL LINKS ------------------*/
   .social {
       display: grid;
       grid-template-columns: auto;
@@ -393,13 +402,14 @@
     cursor: pointer;
   }
 
-
+   /*----------- TEXT CENTRAT ------------------*/
 
   .center-text {
+    margin-top: 70px;
     text-align: center;
     line-height: 5px;
     font-size: 38px;
-    padding: 40px;
+    padding: 10px;
   }
 
 
@@ -418,7 +428,7 @@
   }
 
 
-
+ /*----------- REVIEWS ------------------*/
 
   .review-content {
     display: grid;
@@ -428,8 +438,6 @@
     width: 80%;
     margin: 0 auto;
   }
-
-
 
   
   .review-box {
@@ -538,11 +546,13 @@
     transform: translateY(15px); /* Ajustează poziționarea verticală aici */
   }
 
-  /* FAQ Styles */
+
+   /*----------- FAQ ------------------*/
   .faq-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      margin-bottom: 50px;
   }
 
   .faq-item {
@@ -555,7 +565,6 @@
       background: linear-gradient(48deg, rgba(10, 55, 205, 0.7) 0%, rgba(142, 9, 218, 0.7) 60%, rgba(209, 9, 202, 0.7) 100%);
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 8px 17px 0 rgba(31, 38, 135, 0.4);
-      
       
   }
 
@@ -617,14 +626,14 @@
       transform: translateY(0);
   }
 
-
-
-
+ /*----------- SVG FINAL ------------------*/
   .svg{
     margin-top: -100px;
   }
 
 
+   /*----------- PAGINA ABOUT ME ------------------*/
+   
   .bgg{
     position: fixed;
     bottom: 0;
@@ -643,7 +652,6 @@
    font-size: 80px;
    
   }
-
 
   .bgg2{
     position: fixed;
@@ -679,25 +687,6 @@
   }
 
 
-  .bgg i{
-    font-size: 50px;
-    top:20px;
-    left: 20px;
-    position: inherit;
-    color: aliceblue;
-    cursor: pointer;
-    transition: .5s;
-  }
-
-
-  .bgg i:hover{
-    transform: scale(1.1);
-    position: inherit;
-    color: aliceblue;
-  }
-
-
-
   .circle{
     background-color: aliceblue;
     height: 300px;
@@ -723,41 +712,10 @@
     left: 0;
   }
 
-  .back-contact i{
-    padding: 20px;
-    font-size: 50px;
-    transition: .5s;
-    cursor: pointer;
-  }
-
-  .back-contact i:hover{
-    transform: scale(1.05);
-  }
 
 
+  /*------------------MEDIA QUERRY---------------------*/
 
-
-
-
-  /* Media query for FAQ on mobile */
-  @media screen and (max-width: 768px) {
-    .faq-container {
-        padding: 15px;
-    }
-
-    .faq-question h3 {
-        font-size: 16px;
-    }
-
-    .faq-answer p {
-        font-size: 14px;
-    }
-
-    .selection-bar {
-      display: none;
-    }
-  
-  }
 
 
   @media screen and (max-width: 768px) {
@@ -771,11 +729,11 @@
       width: 100vw;
       /*overflow: hidden;*/
       overflow-y: auto;
-      
     }
     
+    /* NAV - PC */
     .navbar {
-      display: none;     /* OLD NAV*/
+      display: none;     
       position: static;
       order: 0;
       flex-shrink: 0;
@@ -846,6 +804,7 @@
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       z-index: 100;
+      animation: none;
     }
     .color-button {
       width: 70px;
@@ -919,7 +878,6 @@
       text-align: center;
       font-size: 1.1rem;
     }
-
 
     #title {
       margin-top: 10px;
@@ -1016,11 +974,17 @@
     box-shadow: 0 4px 32px rgba(0,0,0,0.7);
   }
 
+
+  /* --------------------MEDIA QUERRY CONTACT PAGE  -----------------------*/
+
   @media screen and (max-width: 768px) {
     .center-text {
-      font-size: 22px;
-      padding: 20px 5px 10px 5px;
-      line-height: 1.2;
+      margin-top: 30px;
+      padding: 10px 5vw 10px 5vw;
+      text-align: center;
+      width: 90vw;
+      margin-left: auto;
+      margin-right: auto;
     }
     .center-text h1 {
       font-size: 20px;
@@ -1032,44 +996,35 @@
       margin: 0;
     }
     .social {
-      grid-template-columns: 1fr;
-      grid-row-gap: 15px;
-      grid-column-gap: 0;
-      padding: 5px;
-      width: 100vw;
+      width: 95vw;
+      margin: 0 auto 10px auto;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
       border-radius: 1rem;
+      padding: 5px 0;
     }
     .soc, .soc1 {
-      font-size: 32px;
-      padding: 6px;
-      gap: 6px;
-      width: 95vw;
+      width: 90vw;
+      margin: 0 auto;
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
-
-
-    .soc:hover, .soc1:hover{
-      transform: none;
-      filter: none;
-    }
-
-
-    .soc p, .soc a, .soc1 p, .soc1 a {
-      font-size: 20px;
-      word-break: break-all;
-    }
-
-
     .review-content {
-      grid-template-columns: 1fr;
       width: 98vw;
       margin: 0 auto;
       gap: 10px;
+      justify-items: center;
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
     }
     .review-box {
-      width: 80vw;
+      width: 90vw;
       margin: 10px auto;
       padding: 10px;
+      box-sizing: border-box;
     }
     .profil {
       flex-direction: row;
@@ -1117,32 +1072,29 @@
       display: none;
     }
 
-    .back-contact{
-      display: none; 
-      outline: none;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .back-contact i{
-      font-size: 35px;
-      padding: 15px;
-      outline: none;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    
-    }
-
 
     .soc1:hover{
       transform: none;
       filter: none;
     }
+
+    .faq-container {
+      padding: 15px;
+  }
+
+  .faq-question h3 {
+      font-size: 16px;
+  }
+
+  .faq-answer p {
+      font-size: 14px;
+  }
+
+  .selection-bar {
+    display: none;
+  }
   
-
-
-
-      /*------------------ MEDIA ABOUT ME ------------- */
+     /* --------------------MEDIA QUERRY ABOUT ME PAGE  -----------------------*/
     .bgg{
       position: fixed;
       top: 0;
@@ -1186,27 +1138,21 @@
       margin-top: 100px;
     }
   
-  
     .circle{
-      position: relative;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin-top:-50px;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      transform: translateY(-50%);
       height: 250px;
       width: 250px;
     }
 
-    .bgg i{
-      display: none;
-      font-size: 40px;
-      left: 20px;
-      top: 20px;
-    }
-
+      /* --------------------MEDIA QUERRY MOBILE NAVBAR -----------------------*/
 
     .mobile-navbar {
       display: flex;
-      position: sticky;
       top: 0;
       margin-bottom: -10px;
       left: 0;
@@ -1278,6 +1224,10 @@
       user-select: none;
       -webkit-tap-highlight-color: transparent;
     }
+
+    .about {
+      border: 2px solid aliceblue;
+    }
     .mobile-profile-pic img {
       width: 100%;
       height: 100%;
@@ -1290,6 +1240,40 @@
       100% { transform: translateY(0); opacity: 1; }
     }
 
+
   }
   
+@keyframes slideInPalette {
+    from {
+        transform: translateX(-150%) translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInButton {
+    from {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideInNAV {
+  from {
+      transform: translateY(-200px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
 
