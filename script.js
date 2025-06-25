@@ -108,12 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const artworks = [
             { color: 'red', img: 'img/1.jpg', title: 'Titlu 1', subtitle: '<span style="color: #333;">Nr. 1</span> __ 8', desc: 'Tablou in ulei | 21x34 cm.' },
             { color: 'blue', img: 'img/2.png', title: 'Titlu 2', subtitle: '<span style="color: #333;">Nr. 2</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'green', img: 'img/3.jpg', title: 'Titlu 3', subtitle: '<span style="color: #333;">Nr. 3</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'yellow', img: 'img/4.jpg', title: 'Titlu 4', subtitle: '<span style="color: #333;">Nr. 4</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'orange', img: 'img/5.jpg', title: 'Titlu 5', subtitle: '<span style="color: #333;">Nr. 5</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'grey', img: 'img/6.jpg', title: 'Titlu 6', subtitle: '<span style="color: #333;">Nr. 6</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'purple', img: 'img/8.png', title: 'Titlu 7', subtitle: '<span style="color: #333;">Nr. 7</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'white', img: 'img/7.jpg', title: 'Titlu 8', subtitle: '<span style="color: #333;">Nr. 8</span> __ 8', desc: 'Descriere pentru al doilea tablou.' }
+            { color: 'green', img: 'img/3.jpg', title: 'Titlu 3', subtitle: '<span style="color: #333;">Nr. 3</span> __ 8', desc: 'Descriere pentru al treilea tablou.' },
+            { color: 'yellow', img: 'img/4.jpg', title: 'Titlu 4', subtitle: '<span style="color: #333;">Nr. 4</span> __ 8', desc: 'Descriere pentru al patrulea tablou.' },
+            { color: 'orange', img: 'img/5.jpg', title: 'Titlu 5', subtitle: '<span style="color: #333;">Nr. 5</span> __ 8', desc: 'Descriere pentru al cincelea tablou.' },
+            { color: 'grey', img: 'img/6.jpg', title: 'Titlu 6', subtitle: '<span style="color: #333;">Nr. 6</span> __ 8', desc: 'Descriere pentru al saselea tablou.' },
+            { color: 'purple', img: 'img/8.png', title: 'Titlu 7', subtitle: '<span style="color: #333;">Nr. 7</span> __ 8', desc: 'Descriere pentru al saptelea tablou.' },
+            { color: 'white', img: 'img/7.jpg', title: 'Titlu 8', subtitle: '<span style="color: #333;">Nr. 8</span> __ 8', desc: 'Descriere pentru al optulea tablou.' }
         ];
 
         let currentIndex = -1;
