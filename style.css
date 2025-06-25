@@ -705,10 +705,9 @@
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
-      min-height: 100vh; /*  height: 100vh;*/
+      height: 100vh; /*  min-height: 100vh;*/
       width: 100vw;
-      /*overflow: hidden;*/
-      overflow-y: auto;
+      /*overflow-y: auto;*/
     }
     
     /* NAV - PC */
@@ -839,7 +838,7 @@
       position: static;
       padding: 10px;
       box-sizing: border-box;
-      height: auto;
+      height:auto;
       margin: 0;
     
     }
@@ -971,7 +970,9 @@
       margin: 10px auto;
       padding: 10px;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
+    
     .profil {
       flex-direction: row;
       gap: 8px;
