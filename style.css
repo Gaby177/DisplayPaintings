@@ -718,11 +718,9 @@
       display: none;     
     }
 
-    /* Paleta pe mobil: scroll orizontal, vizibilă complet sub navbar */
+    /* Paleta pe mobil: static, la finalul paginii, sub tot conținutul */
     .palette {
-      position: sticky;
-      bottom: 0;
-      left: 0;
+      position: static;
       width: 100vw;
       height: 75px;
       max-height: 75px;
@@ -743,6 +741,7 @@
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       animation: none;
+      order: 4;
     }
     .color-button {
       align-items: center;
