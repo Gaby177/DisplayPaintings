@@ -1,1 +1,1 @@
-# Olivia-s-Paintings
+# Art Display
