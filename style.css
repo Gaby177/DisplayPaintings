@@ -718,22 +718,23 @@
       display: none;     
     }
 
+    /* Paleta pe mobil: scroll orizontal, vizibilă complet sub navbar */
     .palette {
-      order: 4;
-      position: sticky;/*edit position: static */
+      position: sticky;
       bottom: 0;
       left: 0;
-      flex-shrink: 0;
-      width: 100%;
+      width: 100vw;
+      height: 75px;
       max-height: 75px;
-      padding: 10px 0;
-      margin-top: 5px;
       background-image: url('img/dots.png');
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
       overflow-x: auto;
       overflow-y: hidden;
+      z-index: 100;
+      margin-top: 0;
+      padding: 10px 0;
       box-shadow: none;
       border: none;
       border-radius: 0;
@@ -741,7 +742,6 @@
       outline: none;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
-      z-index: 100;
       animation: none;
     }
     .color-button {
