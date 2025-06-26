@@ -1,6 +1,7 @@
   :root {
     --text-color: #333;
     font-family: 'Branding', sans-serif;      
+    --sevalet-bottom: -225px; /* Modifică această valoare pentru a schimba distanța șevaletului față de tablou */
   }
 
 
@@ -12,7 +13,7 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background: url('img/BG4.jpg') center center no-repeat;
+    background: url('img/BG.jpg') center center no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -48,10 +49,10 @@
 
   .navbar {
     position: absolute;
-    right: 30px;
+    right: 2rem;
     top: 0;
     width: 100%;
-    height: 70px;
+    height: 5rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -65,9 +66,9 @@
     margin-left: 20px;
     font-weight: 400;
     font-style: normal;
-    font-size: 22px;
+    font-size: 1.3rem;
     color: var(--text-color);
-    margin-right: 10px;
+    margin-right: 1rem;
     font-weight: bold;
     transition: transform .5s;
     position: relative;
@@ -102,13 +103,13 @@
     background-image: url('img/dots.jpg');
     background-size: contain;
     position: absolute;
-    left: 45px;
+    left: 3rem;
     top: 50%;
     transform: translateY(-50%);
-    width: 130px;
+    width: 8rem;
     height: 80vh;
-    max-height: 800px;
-    border-radius: 20px;
+    max-height: 80vh;
+    border-radius: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -606,7 +607,9 @@
     left: 0;
     width: 50vw;
     height: 100vh;
-    background-image: -moz-linear-gradient(#3a21c7, #b21dcc);
+    background: #3A21C7;
+    background: linear-gradient(rgba(58, 33, 199, 1) 0%, rgba(178, 29, 204, 1) 100%);
+
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -707,7 +710,7 @@
       justify-content: flex-start;
       min-height: 100vh; /*  min-height: 100vh;*/
       width: 100vw;
-      /*overflow-y: auto;*/
+      overflow-y: auto;
     }
     
     /* NAV - PC */
@@ -717,10 +720,10 @@
 
     .palette {
       order: 4;
-      position: static;/*edit position: sticky */
+      position: sticky;/*edit position: static */
       bottom: 0;
       left: 0;
-      /*flex-shrink: 0;*/
+      flex-shrink: 0;
       width: 100%;
       max-height: 75px;
       padding: 10px 0;
@@ -1041,7 +1044,6 @@
       left: 0;
       width: 100vw;
       height: 50vh;
-      background-color: #6235c3;
       justify-content: flex-start;
       z-index: 10;
       display: flex;
@@ -1208,3 +1210,23 @@
       opacity: 1;
   }
 }
+
+/* Sevalet sub tablou */
+.sevalet-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--sevalet-bottom);
+  width: 60%;
+  max-width: 650px;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .sevalet-img {
+    display: none;
+  }
+}
+
