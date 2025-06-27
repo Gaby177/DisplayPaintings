@@ -277,3 +277,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', requestTick, { passive: true });
 });
+
+
+window.addEventListener('load', function() {
+    document.getElementById('preloader').style.display = 'none';
+  });

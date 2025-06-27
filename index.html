@@ -21,6 +21,10 @@
 </script>       
 </head>
 <body>
+  <div id="preloader">
+    <img src="img/preloader.gif" alt="Se încarcă..." class="preloader-gif">
+  </div>
+
   <nav class="mobile-navbar">
     <a href="index.html" class="mobile-nav-link" id="nav-home">
       <i class="fa-solid fa-palette"></i>
@@ -68,5 +72,17 @@
   </a>
 
   <script src="script.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      document.getElementById('preloader').style.display = 'none';
+    });
+    // Animatie jump valuri pentru fiecare litera
+    document.addEventListener('DOMContentLoaded', function() {
+      const spans = document.querySelectorAll('.preloader-text span');
+      spans.forEach((span, i) => {
+        span.style.animationDelay = (i * 0.07) + 's';
+      });
+    });
+  </script>
 </body>
 </html>

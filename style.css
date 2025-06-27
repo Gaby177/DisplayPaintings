@@ -38,8 +38,8 @@
     background:aliceblue;
   }
 
+    /*--------------- INDEX PAGE --------------------*/
 
-    /*----------- INDEX PAGE ------------------*/
 
      /*-----------  NAVBAR ------------------*/
 
@@ -183,8 +183,8 @@
     transition: 1s ease;
   }
 
-  .canvas-container:active{
-    transform: scale(1.05) translateY(-5px) rotate(2deg);
+  .painting:active{
+    transform: scale(1.05) translateY(-10px) translateX(-180px) rotate(2deg);
   }
 
 
@@ -256,6 +256,7 @@
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+
   }
 
   #subtitle.hide {
@@ -398,21 +399,17 @@
     padding: 10px;
   }
 
-
-
   .center-text h1 {
     font-size: 30px;
     font-weight: 900;
     color: var(--text-color);
   }
 
-
   .center-text h4 {
     font-size: 17px;
     font-weight: 400;
     color: var(--text-color);
   }
-
 
  /*----------- REVIEWS ------------------*/
 
@@ -695,11 +692,7 @@
   
   }
 
- 
-
   /*------------------MEDIA QUERRY---------------------*/
-
-
 
   @media screen and (max-width: 1024px) {
     body {
@@ -910,6 +903,7 @@
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.7);
+
   }
 
 
@@ -1227,5 +1221,36 @@
   .sevalet-img {
     display: none;
   }
+}
+
+
+
+/* Preloader overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
+
+/* Preloader gif animat */
+.preloader-gif {
+  width: 120px;
+  max-width: 60vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Elimin stilurile pentru preloader-text și animația jump */
+.preloader-text, .preloader-text span {
+  all: unset;
 }
 
