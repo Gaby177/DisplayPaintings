@@ -41,11 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // FAQ Accordion functionality
+    // FAQ Accordion functionality - Simple and clean
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
-            const isActive = faqItem.classList.contains('active');
             
             // Close all other FAQ items
             document.querySelectorAll('.faq-item').forEach(item => {
@@ -55,9 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Toggle the clicked item
-            if (faqItem) {
-                faqItem.classList.toggle('active');
-            }
+            faqItem.classList.toggle('active');
         });
     });
 
@@ -276,9 +273,206 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', requestTick, { passive: true });
-});
 
+
+
+
+
+    // Check if user has seen the gallery animation before
+    const hasSeenGallery = sessionStorage.getItem('hasSeenGallery');
+    const galleryContainer = document.querySelector('.gallery-container');
+    const mainContent = document.getElementById('main-content');
+
+    // If user has seen the gallery before, skip it and show main content directly
+    if (hasSeenGallery) {
+        galleryContainer.style.display = 'none';
+        mainContent.classList.add('visible');
+        return; // Exit early, don't set up gallery functionality
+    }
+
+    // Gallery Portal Effect (only for first-time visitors)
+    const portalFrames = document.querySelectorAll('.portal-frame');
+    const galleryTrack = document.querySelector('.gallery-track');
+    let portalActivated = false;
+
+    // Function to activate portal effect
+    function activatePortal(selectedFrame) {
+        if (portalActivated) return;
+        portalActivated = true;
+
+        // Mark that user has seen the gallery
+        sessionStorage.setItem('hasSeenGallery', 'true');
+
+        // Pause the gallery animation
+        galleryTrack.classList.add('paused');
+
+        // Direct transition to main content
+        galleryContainer.style.transition = 'opacity 0.5s ease-out';
+        galleryContainer.classList.add('hidden');
+        mainContent.classList.add('visible');
+    }
+
+    // Add click event only to portal frames
+    portalFrames.forEach(frame => {
+        frame.addEventListener('click', () => {
+            activatePortal(frame);
+        });
+    });
+
+    // Gallery runs infinitely until user clicks on portal
+    // No auto-activation - user must interact to enter the site
+
+    // Function to reset gallery animation (for testing)
+    window.resetGalleryAnimation = function() {
+        sessionStorage.removeItem('hasSeenGallery');
+        location.reload();
+    };
+
+
+
+
+
+    
+});
 
 window.addEventListener('load', function() {
     document.getElementById('preloader').style.display = 'none';
   });
+
+// --- Contact Page Enhancements ---
+
+// Scroll animations for contact page
+function initContactPageAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Initialize tilt effects for cards
+function initTiltEffects() {
+    // Am eliminat VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {...}) și orice logică asociată tilt.
+}
+
+// Simple FAQ functionality
+function initEnhancedFAQ() {
+    // FAQ is already initialized in the main DOMContentLoaded event
+    // This function is kept for compatibility but does nothing extra
+    console.log('FAQ functionality ready');
+}
+
+// Social card hover effects
+function initSocialCardEffects() {
+    document.querySelectorAll('.social-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Review card interactions
+function initReviewCardEffects() {
+    document.querySelectorAll('.review-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const stars = this.querySelectorAll('.stars i');
+            stars.forEach((star, index) => {
+                star.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    });
+}
+
+// Particle animation enhancement
+function initParticleEffects() {
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach((particle, index) => {
+        // Add random movement
+        setInterval(() => {
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            particle.style.left = randomX + '%';
+            particle.style.top = randomY + '%';
+        }, 8000 + index * 1000);
+    });
+}
+
+// Smooth scroll for navigation
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Initialize all contact page enhancements
+function initContactPageEnhancements() {
+    // Check if we're on the contact page
+    if (window.location.pathname.includes('Contact.html') || 
+        document.querySelector('.social-container')) {
+        
+        // Initialize all enhancements
+        initContactPageAnimations();
+        initTiltEffects();
+        initEnhancedFAQ();
+        initSocialCardEffects();
+        initReviewCardEffects();
+        initParticleEffects();
+        initSmoothScroll();
+        
+        // Add loading animation delay
+        setTimeout(() => {
+            document.body.classList.add('page-loaded');
+        }, 100);
+    }
+}
+
+// Call initialization when DOM is loaded
+initContactPageEnhancements();
+
+// Re-initialize on window resize for responsive behavior
+window.addEventListener('resize', () => {
+    // Am eliminat VanillaTilt.destroyAll(); și orice logică asociată tilt.
+});
+
+// Add CSS for page loading animation
+const style = document.createElement('style');
+style.textContent = `
+    body:not(.page-loaded) .social-card,
+    body:not(.page-loaded) .review-card,
+    body:not(.page-loaded) .faq-item {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    body.page-loaded .social-card,
+    body.page-loaded .review-card,
+    body.page-loaded .faq-item {
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+`;
+document.head.appendChild(style);
