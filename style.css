@@ -2,6 +2,9 @@
     --text-color: #333;
     font-family: 'Branding', sans-serif;      
     --sevalet-bottom: -225px; /* Modifică această valoare pentru a schimba distanța șevaletului față de tablou */
+    --dark-color: #333;
+    --light-color: rgba(240, 248, 255, 0.837);
+    --purple-color: #610ddf;
   }
 
   /* Smooth scrolling */
@@ -285,7 +288,7 @@ html {
     margin-left: 20px;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--text-color);
     margin-right: 1rem;
     font-weight: bold;
@@ -730,6 +733,7 @@ html {
     animation: none;
     outline: none !important;
     transition: none !important;
+    -webkit-tap-highlight-color: transparent;
   }
   .social-box:active .social-bg-img{
     height: 90%;
@@ -751,8 +755,13 @@ html {
     padding: 0;
   }
   .social-bg-text a{
+    margin-top: 20px;
    font-size: 25px;
   } 
+
+  .social-box:hover .social-bg-text a{
+    transform: scale(1.05);
+  }
 }
 
 
@@ -906,23 +915,10 @@ html {
   transition: transform 0.3s ease;
 }
 
-.review-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
 .review-card:hover::before {
   transform: scaleX(1);
 }
-.review-card:hover::after {
-  transform: scaleX(1);
-}
+
 .review-header {
   display: flex;
   align-items: center;
@@ -1367,6 +1363,10 @@ html {
   /* --------------------MEDIA QUERRY CONTACT PAGE  -----------------------*/
 
   @media screen and (max-width: 1024px) {
+
+    .reviews-section {
+      margin: 0;
+    }
     .center-text {
       margin-top: 30px;
       padding: 10px 5vw 10px 5vw;
@@ -1427,13 +1427,13 @@ html {
     }
     .faq-container {
       padding: 5px;
-      max-width: 90vw;
       align-items: center;
       padding-bottom: 50px;
     }
     .faq-item {
       margin-bottom: 10px;
       border-radius: 1rem;
+
     }
     .faq-question {
       padding: 12px 10px;
@@ -1462,6 +1462,7 @@ html {
 
   .selection-bar {
     display: none;
+    
   }
   
      /* --------------------MEDIA QUERRY ABOUT ME PAGE  -----------------------*/
@@ -1550,7 +1551,7 @@ html {
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: #333;
+      color: #656565b9;
       font-family: 'Branding', sans-serif;
       font-size: 13px;
       font-weight: 700;
@@ -1769,6 +1770,8 @@ html {
   margin-top: 20px;
 }
 
+
+
 /* Gradient Text Animation */
 .gradient-text {
   background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
@@ -1810,16 +1813,24 @@ html {
 }
 
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
     transform: translateY(30px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    margin-top: 0;
+  }
+  .gradient-text {
+    margin-top: 0;
+  }
+}
 
 
 /* Scroll Animations */
@@ -1894,7 +1905,6 @@ html {
   }
 }
 
-.social-card,
 .review-card,
 .faq-item {
   animation: cardLoad 0.6s ease-out both;
@@ -1942,6 +1952,7 @@ html {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 /* Top Left Section */
 .type-section:nth-child(1) {
@@ -2157,3 +2168,130 @@ html {
 
 }
 
+
+
+body.dark-mode {
+  background-image: url('img/BG-Dark.png');
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .sevalet-img {
+  filter: brightness(0.3) contrast(1.2);
+}
+
+body.dark-mode .navbar-text,
+body.dark-mode .mobile-nav-link,
+body.dark-mode .navbar-text:after {
+  color: var(--light-color) !important;
+}
+
+body.dark-mode  .navbar-text::after {
+  background-color: var(--light-color);
+
+}
+
+body.dark-mode .active {  
+  color: rgb(109, 3, 215) !important;
+}
+
+body.dark-mode .active i,
+body.dark-mode .active span {
+  color: #00b7ff !important;
+}
+body.dark-mode .palette {
+  background-image: none !important;
+  background: #23272f !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}
+body.dark-mode .painting{
+  border: 5px solid var(--light-color);
+}
+
+body.dark-mode .color-button {
+  background: #23272f !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .active-button {
+  border: 4px solid var(--light-color) !important;
+}
+
+body.dark-mode .social-bg-img{
+filter: brightness(0.8);
+}
+
+
+body.dark-mode .text-area,
+body.dark-mode .gradient-text2,
+body.dark-mode .gradient-text,
+body.dark-mode #subtitle span,
+body.dark-mode .subtitle-animated{
+  color: var(--light-color) !important;
+}
+body.dark-mode .review-box,
+body.dark-mode .review-card,
+body.dark-mode .faq-item,
+body.dark-mode .type-box,
+body.dark-mode .social-box,
+body.dark-mode .review-box p, 
+body.dark-mode .review-box h2
+ {
+  background: #23272f !important;
+  color: var(--light-color);
+  border-color: #444 !important;
+}
+body.dark-mode .order-button {
+  background: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #ffd700 !important;
+}
+body.dark-mode .order-button:hover {
+  background: #444 !important;
+  color: #ffd700 !important;
+}
+body.dark-mode .faq-question h3,
+body.dark-mode .faq-answer p {
+  color: var(--light-color) !important;
+}
+
+body.dark-mode .faq-question:hover{
+  background-color: var(--purple-color);
+}
+
+body.dark-mode .social-bg-text a {
+  background-color: #26282e !important;
+}
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  font-size: 1.7rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+body.dark-mode .dark-mode-toggle {
+  color: var(--light-color) !important;
+}
+
+.social-box.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.social-box.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.7s both;
+}
+.type-section.animate-on-scroll {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.type-section.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.7s both;
+}

@@ -476,3 +476,47 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// === DARK MODE LOGIC ===
+function setDarkMode(enabled) {
+  if (enabled) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', '1');
+    setDarkModeIcon(true);
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', '0');
+    setDarkModeIcon(false);
+  }
+}
+function setDarkModeIcon(isDark) {
+  const btns = [
+    document.getElementById('dark-mode-toggle'),
+    document.getElementById('dark-mode-toggle-desktop')
+  ];
+  btns.forEach(btn => {
+    if (btn) {
+      const icon = btn.querySelector('i');
+      if (icon) {
+        icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      btn.title = isDark ? 'Comută Light Mode' : 'Comută Dark Mode';
+    }
+  });
+}
+function toggleDarkMode() {
+  setDarkMode(!document.body.classList.contains('dark-mode'));
+}
+// Init dark mode on page load
+(function() {
+  const darkPref = localStorage.getItem('darkMode');
+  setDarkMode(darkPref === '1' || (darkPref === null && window.matchMedia('(prefers-color-scheme: dark)').matches));
+  // Attach event listeners
+  const btns = [
+    document.getElementById('dark-mode-toggle'),
+    document.getElementById('dark-mode-toggle-desktop')
+  ];
+  btns.forEach(btn => {
+    if (btn) btn.addEventListener('click', toggleDarkMode);
+  });
+})();
