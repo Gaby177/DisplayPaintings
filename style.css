@@ -3,7 +3,7 @@
     font-family: 'Branding', sans-serif;      
     --sevalet-bottom: -225px; /* Modifică această valoare pentru a schimba distanța șevaletului față de tablou */
     --dark-color: #333;
-    --light-color: rgba(240, 248, 255, 0.837);
+    --light-color: rgba(240, 248, 255, 0.7);
     --purple-color: #610ddf;
   }
 
@@ -16,9 +16,6 @@ html {
 .cont *, *::before, *::after {
   box-sizing: border-box;
 }
-
-
-
 
    /*----------- Gallery Container ------------------*/
 
@@ -236,7 +233,6 @@ html {
     width: 100vw;
     overflow: hidden;
     background: url('img/BG2.jpg') center center no-repeat;
-    /*background-color: aliceblue;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,7 +312,7 @@ html {
   }
 
   .active {
-    color: #6400c1;
+    color: var(--purple-color);
   }
 
    /*----------- PALETA ------------------*/
@@ -401,13 +397,14 @@ html {
     align-items: flex-end;
     justify-content: center;
     margin: 0 auto;
-    transition: 1s ease;
   }
 
-  .painting:active{
-    transform: scale(1.05) translateY(-10px) translateX(-180px) rotate(2deg);
+  @media screen and (min-width: 1024px) {
+    .painting:active{
+      transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
+      transform: translateX(-50%) translateY(-10px);
+    } 
   }
-
 
 
   /*----------- TABLOU ------------------*/
@@ -967,14 +964,15 @@ html {
     overflow: hidden;
     will-change: transform;
     background-color: rgba(255, 255, 255, 0.866);
-    box-shadow: 0 8px 17px 0 rgba(31, 38, 135, 0.4);
+    box-shadow: 0 8px 17px 0 rgba(31, 38, 135, 0.3);
     transition: all 0.3s ease;
   }
 
   .faq-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px 0 rgba(31, 38, 135, 0.5);
+    box-shadow: 0 12px 25px 0 rgba(31, 38, 135, 0.4);
   }
+
 
   .faq-question {
     color: #333;
@@ -985,10 +983,6 @@ html {
     align-items: center;
     transition: background-color 0.3s ease;
     user-select: none;
-  }
-
-  .faq-question:hover {
-    background: aliceblue;
   }
 
   .faq-question h3 {
@@ -1805,9 +1799,8 @@ html {
 
 .subtitle-animated {
   animation: fadeInUp 1s ease-out 0.5s both;
-  color: #333 !important; /* Dark text for better visibility */
+  color: #333 !important;
   font-size: 1.2rem !important;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
   font-weight: 600;
   margin-top: 0;
 }
@@ -2168,11 +2161,21 @@ html {
 
 }
 
-
+/*-----------------------------------------------DARK-MODE-----------------------------------------------------------*/
 
 body.dark-mode {
-  background-image: url('img/BG-Dark.png');
+  background: url('img/BG-Dark.png') center center no-repeat;
   color: #f1f1f1 !important;
+}
+
+@media screen and (max-width:1024px) {
+  body.dark-mode {
+  background: #262626 !important;
+}
+}
+
+body.cont.dark-mode {
+  background: #262626 !important;
 }
 
 body.dark-mode .sevalet-img {
@@ -2196,11 +2199,10 @@ body.dark-mode .active {
 
 body.dark-mode .active i,
 body.dark-mode .active span {
-  color: #00b7ff !important;
+  color: var(--purple-color) !important;
 }
 body.dark-mode .palette {
-  background-image: none !important;
-  background: #23272f !important;
+  background-image: none !important ;
   box-shadow: 0 4px 15px rgba(0,0,0,0.7);
 }
 body.dark-mode .painting{
@@ -2236,19 +2238,27 @@ body.dark-mode .social-box,
 body.dark-mode .review-box p, 
 body.dark-mode .review-box h2
  {
-  background: #23272f !important;
+  background: #292929 !important;
   color: var(--light-color);
   border-color: #444 !important;
 }
+
+body.dark-mode .review-card, body.dark-mode .faq-item{
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .review-card:hover{
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+
 body.dark-mode .order-button {
-  background: #23272f !important;
+  background: #292929 !important;
   color: #f1f1f1 !important;
   border-color: #ffd700 !important;
 }
-body.dark-mode .order-button:hover {
-  background: #444 !important;
-  color: #ffd700 !important;
-}
+
+
 body.dark-mode .faq-question h3,
 body.dark-mode .faq-answer p {
   color: var(--light-color) !important;
