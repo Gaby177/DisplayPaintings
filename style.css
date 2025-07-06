@@ -2283,6 +2283,7 @@ body.dark-mode .social-bg-text a {
   transition: color 0.3s;
   transition: .5s ;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
