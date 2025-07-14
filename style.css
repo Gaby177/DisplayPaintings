@@ -246,7 +246,8 @@ html {
     position: relative;
     flex-direction: column;
     /*cursor: url('img/brush.png'), auto;*/
-}
+  }
+
   /* Special class for contact page */
   body.cont {
     overflow-y: auto;
@@ -2318,7 +2319,7 @@ body.dark-mode .dark-mode-toggle {
     min-height: 100vh;
     min-width: 100vw;
     z-index: 1000;
-    background: #000;
+    background-color: aliceblue;
   }
 }
 
