@@ -247,14 +247,6 @@ html {
     flex-direction: column;
     /*cursor: url('img/brush.png'), auto;*/
 }
-
-@media screen and (max-width: 1024px) {
-    body {
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-    }
-}
-
   /* Special class for contact page */
   body.cont {
     overflow-y: auto;
@@ -2327,10 +2319,6 @@ body.dark-mode .dark-mode-toggle {
     min-width: 100vw;
     z-index: 1000;
     background: #000;
-  }
-  body, html {
-    overflow: hidden;
-    height: 100%;
   }
 }
 
