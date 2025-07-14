@@ -236,9 +236,7 @@ html {
   body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     width: 100vw;
-    overflow: hidden;
     background: url('img/BG2.jpg') center center no-repeat;
     display: flex;
     align-items: center;
@@ -1791,8 +1789,6 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientShift 3s ease-in-out infinite;
-  text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
-
 }
 
 
