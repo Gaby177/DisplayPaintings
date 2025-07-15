@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             .palette-scroll-btn-prev {
               left: 0;
-              top: 10px;
+              top: 15px;
               bottom: 0;
               transform: none;
               margin-right: 8px;
