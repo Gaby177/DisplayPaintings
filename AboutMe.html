@@ -43,38 +43,7 @@
 </div>
 
 <!-- Pop-up informativ pentru rotirea tabloului -->
-<div id="rotate-popup" style="
-  position: fixed;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 18px 32px;
-  border-radius: 16px;
-  font-size: 1.2rem;
-  z-index: 9999;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  text-align: center;
-  transition: opacity 0.5s;
-">
-  Poți roti tabloul
-</div>
-
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      var popup = document.getElementById('rotate-popup');
-      if (popup) {
-        popup.style.opacity = '0';
-        setTimeout(function() {
-          popup.remove();
-        }, 500);
-      }
-    }, 5000);
-  });
-</script>
-
+<div id="rotate-popup">Poți roti tabloul</div>
       <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.28/build/spline-viewer.js"></script>
       <spline-viewer url="https://prod.spline.design/3L9W1sT6KcqHpjap/scene.splinecode"></spline-viewer>
       <script src="script.js"></script>

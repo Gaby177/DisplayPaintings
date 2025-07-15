@@ -200,6 +200,112 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+
+        // === SCROLL BUTTONS FOR PALETTE (STICKY, MODERN) ===
+        function createScrollBtn(direction) {
+            const btn = document.createElement('button');
+            btn.className = `palette-scroll-btn palette-scroll-btn-${direction}`;
+            btn.type = 'button';
+            btn.innerHTML = direction === 'prev' ? '<i class="fa-solid fa-chevron-left"></i>' : '<i class="fa-solid fa-chevron-right"></i>';
+            btn.setAttribute('aria-label', direction === 'prev' ? 'Scroll stânga/sus' : 'Scroll dreapta/jos');
+            return btn;
+        }
+        const scrollPrevBtn = createScrollBtn('prev');
+        const scrollNextBtn = createScrollBtn('next');
+        palette.insertBefore(scrollPrevBtn, palette.firstChild);
+        palette.appendChild(scrollNextBtn);
+        // Scroll logic adaptiv
+        function updateScrollBtnLogic() {
+            const isMobile = window.innerWidth <= 1024;
+            if (isMobile) {
+                scrollPrevBtn.onclick = () => palette.scrollBy({ left: -120, behavior: 'smooth' });
+                scrollNextBtn.onclick = () => palette.scrollBy({ left: 120, behavior: 'smooth' });
+            } else {
+                scrollPrevBtn.onclick = () => palette.scrollBy({ top: -120, behavior: 'smooth' });
+                scrollNextBtn.onclick = () => palette.scrollBy({ top: 120, behavior: 'smooth' });
+            }
+        }
+        updateScrollBtnLogic();
+        window.addEventListener('resize', updateScrollBtnLogic);
+        // === CSS INJECTAT PENTRU BUTOANE ===
+        const paletteBtnStyle = document.createElement('style');
+        paletteBtnStyle.textContent = `
+          .palette-scroll-btn {
+            position: -webkit-sticky;
+            position: sticky;
+            z-index: 20;
+            width: 38px;
+            height: 38px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius:50%;
+            opacity: 0.92;
+            font-size: 1.3em;
+            pointer-events: auto;
+
+          }
+          .palette-scroll-btn i {
+            pointer-events: none;
+            font-size: 1.3em;
+            color: aliceblue;
+            padding: 7px;
+          }
+          .palette-scroll-btn:hover {
+            opacity: 1;
+          }
+          /* Desktop: sus/jos sticky */
+          .palette-scroll-btn-prev {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            margin-bottom: 8px;
+          }
+          .palette-scroll-btn-next {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            margin-top: 8px;
+          }
+          /* Mobil: stanga/dreapta sticky */
+          @media (max-width: 1024px) {
+
+          .palette-scroll-btn i {
+            font-size: 1em;
+          }
+
+
+            .palette-scroll-btn-prev {
+              left: 0;
+              top: 10px;
+              bottom: 0;
+              transform: none;
+              margin-right: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              z-index: 20;
+            }
+            .palette-scroll-btn-next {
+              right: 0;
+              top: 0;
+              bottom: 0;
+              left: auto;
+              transform: none;
+              margin-left: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              z-index: 20;
+            }
+          }
+        `;
+        document.head.appendChild(paletteBtnStyle);
     }
 
     // Image Modal Logic (for Index Page on mobile)
@@ -510,7 +616,7 @@ function toggleDarkMode() {
 // Init dark mode on page load
 (function() {
   const darkPref = localStorage.getItem('darkMode');
-  setDarkMode(darkPref === '1' || (darkPref === null && window.matchMedia('(prefers-color-scheme: dark)').matches));
+  setDarkMode(darkPref === '1'); // Default este light dacă nu există preferință
   // Attach event listeners
   const btns = [
     document.getElementById('dark-mode-toggle'),
@@ -520,3 +626,19 @@ function toggleDarkMode() {
     if (btn) btn.addEventListener('click', toggleDarkMode);
   });
 })();
+
+//Script About me
+window.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('rotate-popup');
+    if (popup) {
+      setTimeout(function() {
+        popup.style.opacity = '1'; // Apare după 3 secunde
+        setTimeout(function() {
+          popup.style.opacity = '0'; // Dispare după încă 5 secunde
+          setTimeout(function() {
+            popup.remove();
+          }, 500);
+        }, 5000);
+      }, 3000);
+    }
+  });
