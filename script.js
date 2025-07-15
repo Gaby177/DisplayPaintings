@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- Logic for Index Page (Art Gallery) ---
-
     const palette = document.getElementById('palette');
     const painting = document.getElementById('painting');
     const title = document.getElementById('title');
@@ -103,14 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         const artworks = [
-            { color: 'red', img: 'img/1.jpg', title: 'Titlu 1', subtitle: '<span style="color: #333;">Nr. 1</span> __ 8', desc: 'Tablou in ulei | 21x34 cm.' },
-            { color: 'blue', img: 'img/2.png', title: 'Titlu 2', subtitle: '<span style="color: #333;">Nr. 2</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
-            { color: 'green', img: 'img/3.jpg', title: 'Titlu 3', subtitle: '<span style="color: #333;">Nr. 3</span> __ 8', desc: 'Descriere pentru al treilea tablou.' },
-            { color: 'yellow', img: 'img/4.jpg', title: 'Titlu 4', subtitle: '<span style="color: #333;">Nr. 4</span> __ 8', desc: 'Descriere pentru al patrulea tablou.' },
-            { color: 'orange', img: 'img/5.jpg', title: 'Titlu 5', subtitle: '<span style="color: #333;">Nr. 5</span> __ 8', desc: 'Descriere pentru al cincelea tablou.' },
-            { color: 'grey', img: 'img/6.jpg', title: 'Titlu 6', subtitle: '<span style="color: #333;">Nr. 6</span> __ 8', desc: 'Descriere pentru al saselea tablou.' },
-            { color: 'purple', img: 'img/8.png', title: 'Titlu 7', subtitle: '<span style="color: #333;">Nr. 7</span> __ 8', desc: 'Descriere pentru al saptelea tablou.' },
-            { color: 'white', img: 'img/7.jpg', title: 'Titlu 8', subtitle: '<span style="color: #333;">Nr. 8</span> __ 8', desc: 'Descriere pentru al optulea tablou.' }
+            { color: 'red', img: 'img/1.webp', title: 'Titlu 1', subtitle: '<span style="color: #333;">Nr. 1</span> __ 8', desc: 'Tablou in ulei | 21x34 cm.' },
+            { color: 'blue', img: 'img/2.webp', title: 'Titlu 2', subtitle: '<span style="color: #333;">Nr. 2</span> __ 8', desc: 'Descriere pentru al doilea tablou.' },
+            { color: 'green', img: 'img/3.webp', title: 'Titlu 3', subtitle: '<span style="color: #333;">Nr. 3</span> __ 8', desc: 'Descriere pentru al treilea tablou.' },
+            { color: 'yellow', img: 'img/4.webp', title: 'Titlu 4', subtitle: '<span style="color: #333;">Nr. 4</span> __ 8', desc: 'Descriere pentru al patrulea tablou.' },
+            { color: 'orange', img: 'img/5.webp', title: 'Titlu 5', subtitle: '<span style="color: #333;">Nr. 5</span> __ 8', desc: 'Descriere pentru al cincelea tablou.' },
+            { color: 'grey', img: 'img/6.webp', title: 'Titlu 6', subtitle: '<span style="color: #333;">Nr. 6</span> __ 8', desc: 'Descriere pentru al saselea tablou.' },
+            { color: 'purple', img: 'img/8.webp', title: 'Titlu 7', subtitle: '<span style="color: #333;">Nr. 7</span> __ 8', desc: 'Descriere pentru al saptelea tablou.' },
+            { color: 'white', img: 'img/7.webp', title: 'Titlu 8', subtitle: '<span style="color: #333;">Nr. 8</span> __ 8', desc: 'Descriere pentru al optulea tablou.' }
         ];
 
         let currentIndex = -1;
@@ -379,66 +378,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', requestTick, { passive: true });
-
-
-
-
-
-    // Check if user has seen the gallery animation before
-    const hasSeenGallery = sessionStorage.getItem('hasSeenGallery');
-    const galleryContainer = document.querySelector('.gallery-container');
-    const mainContent = document.getElementById('main-content');
-
-    // If user has seen the gallery before, skip it and show main content directly
-    if (hasSeenGallery) {
-        galleryContainer.style.display = 'none';
-        mainContent.classList.add('visible');
-        return; // Exit early, don't set up gallery functionality
-    }
-
-    // Gallery Portal Effect (only for first-time visitors)
-    const portalFrames = document.querySelectorAll('.portal-frame');
-    const galleryTrack = document.querySelector('.gallery-track');
-    let portalActivated = false;
-
-    // Function to activate portal effect
-    function activatePortal(selectedFrame) {
-        if (portalActivated) return;
-        portalActivated = true;
-
-        // Mark that user has seen the gallery
-        sessionStorage.setItem('hasSeenGallery', 'true');
-
-        // Pause the gallery animation
-        galleryTrack.classList.add('paused');
-
-        // Direct transition to main content
-        galleryContainer.style.transition = 'opacity 0.5s ease-out';
-        galleryContainer.classList.add('hidden');
-        mainContent.classList.add('visible');
-    }
-
-    // Add click event only to portal frames
-    portalFrames.forEach(frame => {
-        frame.addEventListener('click', () => {
-            activatePortal(frame);
-        });
-    });
-
-    // Gallery runs infinitely until user clicks on portal
-    // No auto-activation - user must interact to enter the site
-
-    // Function to reset gallery animation (for testing)
-    window.resetGalleryAnimation = function() {
-        sessionStorage.removeItem('hasSeenGallery');
-        location.reload();
-    };
-
-
-
-
-
-    
 });
 
 window.addEventListener('load', function() {

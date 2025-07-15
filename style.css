@@ -6,240 +6,22 @@
     --light-color: rgba(240, 248, 255, 0.7);
     --purple-color: #610ddf;
   }
-
   /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
-
 /* Setează box-sizing global */
 .cont *, *::before, *::after {
   box-sizing: border-box;
 }
-
-   /*----------- Gallery Container ------------------*/
-
-  .gallery-container { 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    z-index: 1000;
-    overflow: hidden;
-    transition: opacity 0.8s ease-out;
-  }
-
-  .gallery-container.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* Hide gallery container on mobile screens */
-  @media screen and (max-width: 1024px) {
-    .gallery-container {
-      display: none !important;
-    }
-  }
-
-  .gallery-track {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 20px;
-    animation: slideGallery 30s linear infinite;
-    padding: 0 50px;
-    transition: animation-play-state 0.3s ease;
-  }
-
-  .gallery-track.paused {
-    animation-play-state: paused;
-  }
-
-  @keyframes slideGallery {
-    0% {
-      transform: translateY(-50%) translateX(0);
-    }
-    100% {
-      transform: translateY(-50%) translateX(-50%);
-    }
-  }
-
-  .painting-frame {
-    width: 300px;
-    height: 400px;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease;
-    position: relative;
-    flex-shrink: 0;
-    animation: paintingFadeIn 1s ease-out both;
-  }
-
-  .painting-frame:nth-child(1) { animation-delay: 0.2s; }
-  .painting-frame:nth-child(2) { animation-delay: 0.4s; }
-  .painting-frame:nth-child(3) { animation-delay: 0.6s; }
-  .painting-frame:nth-child(4) { animation-delay: 0.8s; }
-  .painting-frame:nth-child(5) { animation-delay: 1.0s; }
-  .painting-frame:nth-child(6) { animation-delay: 1.2s; }
-  .painting-frame:nth-child(7) { animation-delay: 1.4s; }
-  .painting-frame:nth-child(8) { animation-delay: 1.6s; }
-  .painting-frame:nth-child(9) { animation-delay: 1.8s; }
-  .painting-frame:nth-child(10) { animation-delay: 2.0s; }
-  .painting-frame:nth-child(11) { animation-delay: 2.2s; }
-  .painting-frame:nth-child(12) { animation-delay: 2.4s; }
-  .painting-frame:nth-child(13) { animation-delay: 2.6s; }
-  .painting-frame:nth-child(14) { animation-delay: 2.8s; }
-  .painting-frame:nth-child(15) { animation-delay: 3.0s; }
-
-  @keyframes paintingFadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(30px) scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  .painting-frame:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    transform: scale(1.1);
-  }
-
-  .painting-frame.portal-frame:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.5);
-  }
-
-  .painting-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  /* Portal Frame Styles */
-  .portal-frame {
-    border: 3px solid #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
-    animation: portalGlow 2s ease-in-out infinite alternate, paintingFadeIn 1s ease-out both;
-    cursor: pointer;
-  }
-
-  @keyframes portalGlow {
-    0% {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-    100% {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.6);
-    }
-  }
-
-  .portal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .portal-frame:hover .portal-overlay {
-    opacity: 1;
-  }
-
-  .portal-overlay span {
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.7);
-  }
-
-  .painting-frame.portal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    width: 80vw;
-    height: 80vh;
-    z-index: 1001;
-    animation: portalMorph 1.5s ease-out forwards;
-  }
-
-  @keyframes portalMorph {
-    0% {
-      /* Starting position - center of screen */
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      width: 200px;
-      height: 300px;
-      border-radius: 10px;
-    }
-    50% {
-      /* Intermediate position - moving towards final position */
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1.05);
-      width: 300px;
-      height: 250px;
-      border-radius: 8px;
-    }
-    100% {
-      /* Final position - where it should be in the site */
-      top: calc(100% - 113px - 225px); /* bottom: 113px + half height */
-      left: 50%;
-      transform: translate(-50%, 0) scale(1);
-      width: 400px;
-      height: auto;
-      border-radius: 0;
-      opacity: 0;
-    }
-  }
-
-  .main-content {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease-in, visibility 1s ease-in;
-  }
-
-  .main-content.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Override flex layout on mobile */
-  @media screen and (max-width: 1024px) {
-    .main-content {
-      display: block !important;
-      flex-direction: unset !important;
-    }
-  }
-
   /*----------- Body ------------------*/
-
   body {
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background: url('img/BG2.jpg') center center no-repeat;
+    background: url('img/BG2.webp') center center no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +29,6 @@ html {
     flex-direction: column;
     /*cursor: url('img/brush.png'), auto;*/
   }
-
   /* Special class for contact page */
   body.cont {
     overflow-y: auto;
@@ -258,14 +39,10 @@ html {
     background:aliceblue;
     background-size: cover;
   }
-
   body.about{
     background:aliceblue;
   }
-
     /*--------------- INDEX PAGE --------------------*/
-
-
      /*-----------  NAVBAR ------------------*/
 
   .mobile-navbar{
@@ -286,7 +63,6 @@ html {
     z-index: 999;
     animation: slideInNAV 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
   .navbar-text {
     margin-left: 20px;
     font-weight: 400;
@@ -300,7 +76,6 @@ html {
     text-decoration: none;
     cursor: pointer;
   }
-
   .navbar-text::after {
     content: '';
     position: absolute;
@@ -313,17 +88,13 @@ html {
     transform-origin: center;
     transition: transform 0.4s ease-out;
   }
-
   .navbar-text:hover::after {
     transform: scaleX(1);
   }
-
   .active {
     color: var(--purple-color);
   }
-
    /*----------- PALETA ------------------*/
-
   .palette {
     background-image: url('img/dots.png');
     background-size: contain;
@@ -346,12 +117,9 @@ html {
     -ms-overflow-style: none; /* IE and Edge */
     animation: slideInPalette 1.2s cubic-bezier(0.4, 0, 0.2, 1); 
   }
-
-
   .palette::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
-
   .color-button {
     position: relative;
     width: 90px;
@@ -368,7 +136,6 @@ html {
     margin: 8px 0;
     flex-shrink: 0;
   }
-
   .color-button img {
     width: 100%;
     height: 100%;
@@ -376,23 +143,18 @@ html {
     transition: transform 0.3s ease;
     border-radius: 50%;
   }
-
   .color-button:hover img {
     transform: scale(1.1);
   }
-
   .active-button {
     transition: .7s;
     border: 4px solid var(--text-color);
     box-shadow: 0 0 15px rgba(116, 116, 116, 0.5);
     transform: scale(1.1);
   }
-
   .active-button img {
     transform: scale(1.1);
   }
-
-
    /*----------- CONTAINER CANVAS ------------------*/
 
   .canvas-container {
@@ -404,17 +166,13 @@ html {
     justify-content: center;
     margin: 0 auto;
   }
-
   @media screen and (min-width: 1024px) {
     .painting:active{
       transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
       transform: translateX(-50%) translateY(-10px);
     } 
   }
-
-
   /*----------- TABLOU ------------------*/
-
   .painting {
     z-index: 99;
     position: absolute;
@@ -430,19 +188,13 @@ html {
     transform-origin: bottom center;
     cursor: pointer;
   }
-
   .hide {
     transform: translateX(300%) rotate(50deg) !important;
   }
-
   .show {
     transform: translateX(-50%) rotate(0deg);
   }
-
-
-
   /*----------- TEXTE TABLOU ------------------*/
-
   .text-area {
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
@@ -456,18 +208,15 @@ html {
     text-align: right;
     color: #333;
   }
-
   #title {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
-
   #title.hide {
     opacity: 0;
     transform: translateX(50px);
   }
-
   #subtitle {
     color: #929292;
     margin-top: -25px;
@@ -476,14 +225,11 @@ html {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
-
   }
-
   #subtitle.hide {
     opacity: 0;
     transform: translateX(50px);
   }
-
   #description {
     opacity: 1;
     transform: translateX(0);
@@ -493,13 +239,10 @@ html {
     margin-top: 20px;
     font-weight: 0;
   }
-
   #description.hide {
     opacity: 0;
     transform: translateX(50px);
   }
-
- 
 
     /*----------- CBUTON COMANDA TABLOU ------------------*/
 
@@ -523,14 +266,10 @@ html {
     gap: 0px;
     animation: slideInButton 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
   }
-
   a{
     color: inherit;
     text-decoration: none;
-    
   }
-
-  
   .order-button i {
     font-size: 60px;
     transform: rotate(-30deg);
@@ -540,26 +279,21 @@ html {
     padding: 0px;
     transition: all 0.3s ease-in-out;
   }
-
   .order-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     background: #333;
     color: white;
   }
-
   .order-button:hover i {
     transform: rotate(-30deg) scale(1.1);
     transition: .5s;
     rotate: -30deg;
   }
-
   .order-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
-
-
    /* ------------------------------------------- SOCIAL SECTION ------------------------------------------------------- */
 
 .social-tab{
@@ -609,7 +343,7 @@ html {
 }
 /* Facebook card */
 .social-box:nth-child(1) .social-bg-img {
-  background-image: url('img/fa-bg.jpg');
+  background-image: url('img/fa-bg.webp');
 }
 .social-box:nth-child(1) .social-i {
   background: #006acb;  
@@ -620,7 +354,7 @@ html {
 }
 /* Instagram card */
 .social-box:nth-child(2) .social-bg-img {
-  background-image: url('img/ig-bg.png');
+  background-image: url('img/ig-bg.webp');
 }
 .social-box:nth-child(2) .social-i {
   background: #7f20d4;
@@ -631,7 +365,7 @@ html {
 
 /* Email card */
 .social-box:nth-child(3) .social-bg-img {
-  background-image: url('img/ma-bg.jpg');
+  background-image: url('img/ma-bg.webp');
 }
 .social-box:nth-child(3) .social-i {
   background: #3cb6d3;
@@ -641,7 +375,7 @@ html {
 }
 /* WhatsApp card */
 .social-box:nth-child(4) .social-bg-img {
-  background-image: url('img/wa-bg.jpg');
+  background-image: url('img/wa-bg.webp');
 }
 .social-box:nth-child(4) .social-i {
   background: #29b569;
@@ -1051,7 +785,6 @@ html {
 
   @media screen and (max-width: 1024px) {
     body {
-      background-image: url('img/BG_Mobile.jpg');
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -1059,6 +792,7 @@ html {
       min-height: 100vh; /*  min-height: 100vh;*/
       width: 100vw;
       overflow-y: auto;
+      background: aliceblue;
     }
     
     /* NAV - PC */
@@ -1497,8 +1231,6 @@ html {
   }
 }
 
-
-
 /* Preloader overlay */
 #preloader {
   position: fixed;
@@ -1526,29 +1258,6 @@ html {
 /* Elimin stilurile pentru preloader-text și animația jump */
 .preloader-text, .preloader-text span {
   all: unset; 
-}
-
-
-@media screen and (max-width: 768px) {
-  .painting-frame {
-    width: 180px;
-    height: 270px;
-  }
-  
-  .gallery-track {
-    gap: 15px;
-    padding: 0 30px;
-  }
-  
-  .painting-frame.portal {
-    width: 90vw;
-    height: 70vh;
-  }
-  
-  .portal-overlay span {
-    font-size: 12px;
-    padding: 8px;
-  }
 }
 
 /*----------- CONTACT PAGE ENHANCEMENTS ------------------*/
@@ -1790,7 +1499,7 @@ html {
 }
 /* Top Left Section */
 .type-section:nth-child(1) {
-  background-image: url('img/1.jpg');
+  background-image: url('img/1.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1814,7 +1523,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('img/1.jpg');
+  background-image: url('img/1.webp');
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
@@ -1827,7 +1536,7 @@ html {
 
 /* Top Right Section */
 .type-section:nth-child(2) {
-  background-image: url('img/2.png');
+  background-image: url('img/2.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1851,7 +1560,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('img/2.png');
+  background-image: url('img/2.webp');
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
@@ -1864,7 +1573,7 @@ html {
 
 /* Bottom Left Section */
 .type-section:nth-child(3) {
-  background-image: url('img/3.jpg');
+  background-image: url('img/3.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1888,7 +1597,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('img/3.jpg');
+  background-image: url('img/3.webp');
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
@@ -1901,7 +1610,7 @@ html {
 
 /* Bottom Right Section */
 .type-section:nth-child(4) {
-  background-image: url('img/4.jpg');
+  background-image: url('img/4.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1925,7 +1634,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('img/4.jpg');
+  background-image: url('img/4.webp');
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
@@ -2005,7 +1714,7 @@ html {
 /*-----------------------------------------------DARK-MODE-----------------------------------------------------------*/
 
 body.dark-mode {
-  background: url('img/BG-Dark.png') center center no-repeat;
+  background: url('img/BG-Dark.webp') center center no-repeat;
   color: #f1f1f1 !important;
 }
 
@@ -2181,4 +1890,6 @@ body.dark-mode .dark-mode-toggle {
     background-color: aliceblue;
   }
 }
+
+
 
