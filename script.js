@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (clickX < textWidth * 0.45) {
                 e.preventDefault();
                 e.stopPropagation();
-                window.location.href = 'Contact.html';
+                window.location.href = 'ContactMe/';
             }
         };
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var backIcon = document.getElementById('back-to-index');
     if (backIcon) {
         backIcon.addEventListener('click', function() {
-            window.location.href = 'index.html';
+            window.location.href = './';
         });
     }
 
@@ -477,7 +477,7 @@ function initSmoothScroll() {
 // Initialize all contact page enhancements
 function initContactPageEnhancements() {
     // Check if we're on the contact page
-    if (window.location.pathname.includes('Contact.html') || 
+    if (window.location.pathname.includes('ContactMe/') || 
         document.querySelector('.social-container')) {
         
         // Initialize all enhancements
